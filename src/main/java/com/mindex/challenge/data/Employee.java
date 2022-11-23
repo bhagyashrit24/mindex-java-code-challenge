@@ -1,7 +1,9 @@
 package com.mindex.challenge.data;
 
+import lombok.AllArgsConstructor;
 import java.util.List;
 
+@AllArgsConstructor
 public class Employee {
     private String employeeId;
     private String firstName;
