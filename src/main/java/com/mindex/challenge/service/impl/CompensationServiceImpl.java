@@ -23,7 +23,13 @@ public class CompensationServiceImpl implements CompensationService {
     @Override
     public Compensation create(Compensation compensation) {
         LOG.debug("Persisting compensation.");
-        return compensationRepository.insert(compensation);
+        Employee employee;
+        if(compensation.getEmployee().getEmployeeId() == null)
+            employee = employeeService.create(compensation.getEmployee());
+        else
+            employee = employeeService.read(compensation.getEmployee().getEmployeeId());
+        Compensation employeeWithId = new Compensation(employee, compensation.getSalary(), compensation.getEffectiveDate());
+        return compensationRepository.insert(employeeWithId);
     }
 
     @Override
