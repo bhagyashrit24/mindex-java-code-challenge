@@ -1,0 +1,126 @@
+{
+	"info": {
+		"_postman_id": "867d103d-eb36-4f8c-9d3f-176507cc6d98",
+		"name": "postman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8816523"
+	},
+	"item": [
+		{
+			"name": "Create employee",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstName\":\"John\",\n    \"lastName\":\"Lennon\",\n    \"position\":\"Developer\",\n    \"department\":\"Engineering\",\n    \"directReports\":[\n        {\n            \"firstName\":\"Paul\",\n            \"lastName\":\"Maccarthy\",\n            \"position\":\"Developer\",\n            \"department\":\"Engineering\",\n            \"directReports\":[\n                {\n                    \"firstName\":\"Ringo\",\n                    \"lastName\":\"Starr\",\n                    \"position\":\"Developer\",\n                    \"department\":\"Engineering\",\n                    \"directReports\":[\n                        {\n                            \"firstName\":\"Pete\",\n                            \"lastName\":\"Best\",\n                            \"position\":\"Developer\",\n                            \"department\":\"Engineering\"\n                        }\n                    ]\n                },\n                {\n                    \"firstName\":\"Penelope\",\n                    \"lastName\":\"Alwarez\",\n                    \"position\":\"Developer\",\n                    \"department\":\"Engineering\"\n                }\n            ]\n        },\n        {\n            \"firstName\":\"Julia\",\n            \"lastName\":\"Ann\",\n            \"position\":\"Developer\",\n            \"department\":\"Engineering\"\n        }\n        ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/employee",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read employee",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/employee/0b4331ac-8794-48ec-9654-ba737eeefbfd",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employee",
+						"0b4331ac-8794-48ec-9654-ba737eeefbfd"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get reporting structure",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/reportingStructure/{id}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"reportingStructure",
+						"{id}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create compensation",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"employee\":\n    {\n        \"employeeId\":\"0b4331ac-8794-48ec-9654-ba737eeefbfd\",\n        \"firstName\": \"John\",\n        \"lastName\": \"Lennon\",\n        \"position\": \"Developer\",\n        \"department\": \"Engineering\"\n    },\n    \"salary\":\"110000\",\n    \"effectiveDate\":\"2023-01-01T00:00:00Z\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/employeeCompensation",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employeeCompensation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read compensation",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/employeeCompensation/{id}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"employeeCompensation",
+						"{id}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
